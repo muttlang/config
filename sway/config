@@ -207,18 +207,16 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 bindsym $mod+o exec swaylock
-bindsym $mod+g exec grim | slurp
+bindsym $mod+g exec grim -g "$(slurp)"
 bindsym $mod+shift+b exec pcmanfm
 bindsym $mod+shift+c exec $term -e vim ~/.config/sway/config && sway  reload
 bindsym $mod+shift+a exec $term -e alsamixer
-bindsym $mod+shift+n exec com.github.Eloston.UngoogledChromium
-bindsym $mod+d exec com.discordapp.Discord --enable-features=UseOzonePlatform --ozone-platform=wayland
-bindsym $mod+shift+d exec im.riot.Riot
-bindsym $mod+y exec org.signal.Signal
+bindsym $mod+shift+n exec chromium
+bindsym $mod+d exec discord --enable-features=UseOzonePlatform --ozone-platform=wayland
+bindsym $mod+m exec $term -e gomuks
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
-
 
 #
 # Status Bar:
@@ -248,7 +246,6 @@ for_window [title="^.*"] title_format ""
 default_border none 
 default_floating_border normal 0
 
-exec alacritty
 exec udiskie
 exec lxpolkit
 exec export GTK_IM_MODULE=fcitx
